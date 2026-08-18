@@ -6,7 +6,7 @@ import {
   AlertTriangle,
   ArrowDownCircle,
   ArrowUpCircle,
-  Boxes,
+  
   ExternalLink,
   LifeBuoy,
   Plus,
@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toaster } from "@/components/ui/sonner";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -134,11 +135,9 @@ function Painel() {
   return (
     <main className="min-h-screen bg-background">
       <Toaster />
-      <header className="border-b border-border bg-card">
+      <header className="border-b-4 border-primary bg-card">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-6 py-6">
-          <div className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <Boxes className="size-6" />
-          </div>
+          <img src={logoAsset.url} alt="Grupo Pneu Bras" className="h-11 w-auto" />
           <div className="mr-auto">
             <h1 className="text-xl font-semibold tracking-tight">Controle de Toners</h1>
             <p className="text-sm text-muted-foreground">
