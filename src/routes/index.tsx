@@ -199,7 +199,7 @@ function Painel() {
                   <Badge variant="secondary">OK</Badge>
                 )}
 
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   <Button size="sm" variant="outline" onClick={() => setMovDialog({ toner: t, tipo: "ENTRADA" })}>
                     <ArrowUpCircle />
                     Entrada
@@ -207,6 +207,18 @@ function Painel() {
                   <Button size="sm" variant="outline" onClick={() => setMovDialog({ toner: t, tipo: "SAIDA" })}>
                     <ArrowDownCircle />
                     Saída
+                  </Button>
+                  <Button size="sm" variant="default" asChild>
+                    <a
+                      href={chamadoDe(t).url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Abrir chamado com ${chamadoDe(t).nome}`}
+                    >
+                      <LifeBuoy />
+                      Chamado {chamadoDe(t).nome}
+                      <ExternalLink className="size-3.5 opacity-70" />
+                    </a>
                   </Button>
                 </div>
               </article>
