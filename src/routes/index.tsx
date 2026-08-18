@@ -56,6 +56,25 @@ export const Route = createFileRoute("/")({
   component: Painel,
 });
 
+const YUNGAS_URL =
+  "https://app.yungas.com.br/helpdesk/?include_fields=markers&page=1&usersPage=1";
+const ZAPPCOM_URL = "https://psfx.com.br/pws/index.php/auth_acl";
+
+/** Brother DCP 1617NW, Brother DCP L5652DN e EPSON → Yungas (administrativo); demais → Zappcom. */
+function chamadoDe(t: Toner): { nome: string; url: string } {
+  const texto = `${t.modelo} ${t.cartucho}`
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+  const yungas =
+    texto.includes("EPSON") ||
+    texto.includes("1617") ||
+    texto.includes("L5652") ||
+    texto.includes("5652");
+  return yungas
+    ? { nome: "Yungas", url: YUNGAS_URL }
+    : { nome: "Zappcom", url: ZAPPCOM_URL };
+}
+
 function Painel() {
   const queryClient = useQueryClient();
   const fetchToners = useServerFn(listToners);
