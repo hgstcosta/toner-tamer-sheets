@@ -6,7 +6,7 @@ import {
   AlertTriangle,
   ArrowDownCircle,
   ArrowUpCircle,
-  Boxes,
+  
   ExternalLink,
   LifeBuoy,
   Plus,
@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toaster } from "@/components/ui/sonner";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
